@@ -84,8 +84,11 @@ public class CarRoute : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log(other.name);
-        triggers.Add(other);
-        stopPlease = true;
+        if (other.tag != "CarFront")
+        {
+            triggers.Add(other);
+            stopPlease = true;
+        }
     }
 
     private void OnTriggerExit(Collider other)
